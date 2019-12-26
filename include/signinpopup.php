@@ -1,4 +1,56 @@
 <!-- Sign in / Register Modal -->
+       
+       <!--       php code for sign in     -->
+        <?php 
+        session_start();
+
+        $servername="localhost";
+        $username="root";
+        $dbname="neuleaf";
+
+
+        $conn=new mysqli($servername,$username,'',$dbname);
+        if($conn->connect_error) 
+        {
+            die("Connection failed: " . $conn->connect_error);
+        }     
+
+
+        if(count($_SESSION)>=1)
+        {
+        header("Location:homepage.php"); 
+        }
+
+        if(isset($_POST['singin-email'])) {
+        
+            $uid=$_POST['singin-email'];
+            $pass=$_POST['singin-password'];
+            $sql="select * from user where email='".$uid."' AND password='".$pass."' limit 1";
+            $result=$conn->query($sql);
+        
+        //    if(mysqli_num_rows($result)==1)
+        //    {
+            
+            if (mysqli_num_rows($result)==1)
+            {
+                $_SESSION["user_name"]=$uid;
+                header("Location:homepage.php");
+                echo "<script>alert('Suscefully login')</script>";
+                echo "</br>";
+                exit();
+            }    
+            
+        else{
+            header("Location:index.php");         
+            
+            exit();
+        }
+            
+        }
+        //      sign in code end
+        
+        ?>
+
     <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -19,7 +71,7 @@
                             </ul>
                             <div class="tab-content" id="tab-content-5">
                                 <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
-                                    <form action="#">
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                                         <div class="form-group">
                                             <label for="singin-email">Username or email address *</label>
                                             <input type="text" class="form-control" id="singin-email" name="singin-email" required="">
