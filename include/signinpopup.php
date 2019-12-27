@@ -39,11 +39,12 @@
 				echo '<a href="include/logout.php"><h1>LOgout</h1></a>';
                 echo "<script>alert('Suscefully login')</script>";
                 echo "</br>";
+				
                 exit();
             }    
             
         else{
-            header("Location:index.php");         
+                    echo "login fail";
             
             exit();
         }
@@ -145,7 +146,7 @@
                                         </div><!-- End .form-group -->
 
                                         <div class="form-footer">
-                                            <button type="submit" class="btn btn-outline-primary-2">
+                                            <button type="submit" name="Submit" class="btn btn-outline-primary-2">
                                                 <span>SIGN UP</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>

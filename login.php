@@ -24,7 +24,7 @@
 							</ul>
 							<div class="tab-content">
 							    <div class="tab-pane fade" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
-							    	<form action="#">
+							    	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
 							    		<div class="form-group">
 							    			<label for="singin-email-2">Username or email address *</label>
 							    			<input type="text" class="form-control" id="singin-email-2" name="singin-email" required="">
