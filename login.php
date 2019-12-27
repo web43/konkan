@@ -70,21 +70,35 @@
 							    <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
 							    	<form action="#">
 							    		<div class="form-group">
-							    			<label for="register-email-2">Your email address *</label>
-							    			<input type="email" class="form-control" id="register-email-2" name="register-email" required="">
-							    		</div><!-- End .form-group -->
+                                            <label for="register-name">Your Name *</label>
+                                            <input type="email" class="form-control" id="register-name" name="register-name" required="">
+										</div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <label for="register-lastname">Your Lastname *</label>
+                                            <input type="email" class="form-control" id="register-lastname" name="register-lastname" required="">
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <label for="register-email">Your email address *</label>
+                                            <input type="email" class="form-control" id="register-email" name="register-email" required="">
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <label for="register-number">Phone Number *</label>
+                                            <input type="password" class="form-control" id="register-number" name="register-number" required="">
+                                        </div><!-- End .form-group -->
 
-							    		<div class="form-group">
-							    			<label for="register-password-2">Password *</label>
-							    			<input type="password" class="form-control" id="register-password-2" name="register-password" required="">
-							    		</div><!-- End .form-group -->
-
+                                        <div class="form-group">
+                                            <label for="register-password">Password *</label>
+                                            <input type="password" class="form-control" id="register-password" name="register-password" required="">
+                                        </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <label for="register-Confirm_password">Confirm Password *</label>
+                                            <input type="password" class="form-control" id="Confirm_password" name="Confirm_password" required="">
+                                        </div><!-- End .form-group -->
 							    		<div class="form-footer">
 							    			<button type="submit" class="btn btn-outline-primary-2">
 			                					<span>SIGN UP</span>
 			            						<i class="icon-long-arrow-right"></i>
 			                				</button>
-
 			                				<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input" id="register-policy-2" required="">
 												<label class="custom-control-label" for="register-policy-2">I agree to the <a href="#">privacy policy</a> *</label>

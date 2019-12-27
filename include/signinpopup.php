@@ -2,7 +2,7 @@
        
        <!--       php code for sign in     -->
         <?php 
-        session_start();
+        //session_start();
 
         $servername="localhost";
         $username="root";
@@ -16,9 +16,9 @@
         }     
 
 
-        if(count($_SESSION)>=1)
+       if(count($_SESSION)>=1)
         {
-        header("Location:homepage.php"); 
+        echo '<a href="include/logout.php"><h1>LOgout</h1></a>';
         }
 
         if(isset($_POST['singin-email'])) {
@@ -34,7 +34,9 @@
             if (mysqli_num_rows($result)==1)
             {
                 $_SESSION["user_name"]=$uid;
-                header("Location:homepage.php");
+                //header("Location:homepage.php");
+				echo print_r($_SESSION);
+				echo '<a href="include/logout.php"><h1>LOgout</h1></a>';
                 echo "<script>alert('Suscefully login')</script>";
                 echo "</br>";
                 exit();
@@ -116,10 +118,10 @@
                                 </div><!-- .End .tab-pane -->
                                 <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                                     <form action="#">
-                                    <div class="form-group">
+										<div class="form-group">
                                             <label for="register-name">Your Name *</label>
                                             <input type="email" class="form-control" id="register-name" name="register-name" required="">
-                                        </div><!-- End .form-group -->
+										</div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-lastname">Your Lastname *</label>
                                             <input type="email" class="form-control" id="register-lastname" name="register-lastname" required="">
