@@ -80,7 +80,9 @@
 	                            <span class="wishlist-count">0</span>
 	                        </a>
 	                    </div><!-- End .compare-dropdown -->
-
+						
+						
+						<!-- Cart -->
 	                    <div class="dropdown cart-dropdown">
 	                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
 	                            <i class="icon-shopping-cart"></i>
@@ -142,8 +144,27 @@
 	                            </div><!-- End .dropdown-cart-total -->
 	                        </div><!-- End .dropdown-menu -->
 							
-	                    </div><!-- End .cart-dropdown -->
-						 <div class="wishlist">
+	                    </div>
+						<!-- End .cart-dropdown -->
+						
+							<!-- ---------Login------------------->
+						 <div class="dropdown cart-dropdown">
+	                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" style="font-size: 20px;">
+	                           <i class="icon-user"></i>Profile</a>
+	                        </a>
+
+	                        <div class="dropdown-menu dropdown-menu-right">
+							<p>Welcome To Access Account</p>
+	                            <div class="dropdown-cart-action">
+									
+	                                <a href="login.php" class="btn btn-primary">SIGN UP<i class="icon-long-arrow-right"></i></a>
+	                                <a href="cart.html" class="btn btn-primary">LOG IN<i class="icon-long-arrow-right"></i></a>
+	                            </div><!-- End .dropdown-cart-total -->
+	                        </div><!-- End .dropdown-menu -->
+							
+	                    </div>
+						<!-----------Login END------------------->
+						<!--- <div class="wishlist">
 	                        <a href="wishlist.html" title="login">
 	                            <li><a href="#signin-modal" data-toggle="modal" style="font-size: 20px;"><i class="icon-user"></i>Login</a></li>
 	                        </a>
