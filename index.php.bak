@@ -1,11 +1,6 @@
 
-<?php 
-//session_start(); 
-
-
-
-include("include/header.php");
-?>
+<?php session_start(); 
+include 'include/header.php';?>
 
 	        <div class="slider">
 	        	<div class="intro">
@@ -886,7 +881,7 @@ include("include/header.php");
             </section>
 		</main>
 		
-		<!------------------------newsletter--------------------------------------------------->
+		<!------------------------newsletter---------------------------------------------------
 
     <div class="container newsletter-popup-container mfp-hide" id="newsletter-popup-form">
         <div class="row justify-content-center">
@@ -902,13 +897,13 @@ include("include/header.php");
                                     <input type="email" class="form-control form-control-white" placeholder="Your Email Address" aria-label="Email Adress" required="">
                                     <div class="input-group-append">
                                         <button class="btn" type="submit"><span>go</span></button>
-                                    </div><!-- .End .input-group-append -->
-                                </div><!-- .End .input-group -->
+                                    </div><!-- .End .input-group-append --
+                                </div><!-- .End .input-group --
                             </form>
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="register-policy-2" required="">
                                 <label class="custom-control-label" for="register-policy-2">Do not show this popup again</label>
-                            </div><!-- End .custom-checkbox -->
+                            </div><!-- End .custom-checkbox --
                         </div>
                     </div>
                     <div class="col-xl-2-5col col-lg-5 ">
@@ -921,6 +916,6 @@ include("include/header.php");
 		<!------------------------newsletter--------------------------------------------------->
 
 
-	<?php include("include/footer.php");?>	
+	<?php include 'include/footer.php';?>	
 </body>
 </html>

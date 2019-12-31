@@ -1,4 +1,51 @@
-<?php include 'include/loginHeader.php';?>
+    <?php 
+        session_start();
+       
+        $servername="localhost";
+        $username="root";
+        $dbname="neuleaf";
+
+        $conn=new mysqli($servername,$username,'',$dbname);
+        if($conn->connect_error) 
+        {
+            die("Connection failed: " . $conn->connect_error);
+        }     
+
+
+    //   
+       if(isset($_POST['singin-email']))
+        {
+        
+            $uid=$_POST['singin-email'];
+            $pass=$_POST['singin-password'];
+            $sql="select * from user where email='".$uid."' AND password='".$pass."' limit 1";
+            $result=$conn->query($sql);
+        
+        //    if(mysqli_num_rows($result)==1)
+        //    {
+            
+            if (mysqli_num_rows($result)==1)
+            {
+                $_SESSION["user_name"]=$uid;
+                header("Location:index.php");
+               
+                
+               
+                echo '<a href="include/logout.php"><h1>LOgout</h1></a>';
+               // echo "</br>";
+				//header("Location:../index.php");
+               // exit();
+            }    
+            
+                else
+                {
+					echo "<script>alert('Invalid email or password')</script>";
+				}
+            
+            
+        }
+        include("include/loginHeader.html");    
+    ?>
         <main class="main">
             <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
                 <div class="container">
@@ -130,7 +177,9 @@
             </div><!-- End .login-page section-bg -->
         </main><!-- End .main -->
 
-        <?php include 'include/loginFooter.php';?>   
+        <?php 
+        include('include/loginFooter.php');
+        ?>   
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
 
     <!-- Mobile Menu -->
@@ -184,8 +233,7 @@
     </div><!-- End .mobile-menu-container -->
 
     <!-- Sign in / Register Modal -->
-     <?php include 'include/signinpopup.php';?>
-
+     
     <!-- Plugins JS File -->
     <script src="assets\js\jquery.min.js"></script>
     <script src="assets\js\bootstrap.bundle.min.js"></script>
