@@ -158,8 +158,33 @@ session_start();
 								   <?php if(count($_SESSION)>=1)
  									 {
 										// header("Location:index.php");
+										$servername="localhost";
+										$username="root";
+										$dbname="neuleaf";
+
+										$conn=new mysqli($servername,$username,'',$dbname);
+										if($conn->connect_error) 
+										{
+											die("Connection failed: " . $conn->connect_error);
+										}    
+										$sql = "SELECT first_name FROM user";
 											echo '<a href="include/logout.php">Logout</a>';
-											echo "welcome </br> ".$_SESSION["user_name"];
+											echo "welcome </br> ".$_SESSION["user_name"]."</br>";
+											
+
+											$result = $conn->query($sql);
+
+											if ($result->num_rows > 0) {
+												// output data of each row
+												while($row = $result->fetch_assoc()) {
+													echo "Name: " . $row["first_name"]. "<br>";
+												}
+											} else {
+												echo "0 results";
+											}
+											$conn->close();
+
+
 										//	print_r($_SESSION);
 									 }
 								 ?>
