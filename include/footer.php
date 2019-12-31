@@ -178,7 +178,7 @@
         </div><!-- End .mobile-menu-wrapper -->
     </div><!-- End .mobile-menu-container -->
 	
-	 <?php include 'include/signinpopup.php';?>
+	 
 
 	
 	

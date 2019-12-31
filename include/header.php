@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -150,7 +153,15 @@
 							<!-- ---------Login------------------->
 						 <div class="dropdown cart-dropdown">
 	                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" style="font-size: 20px;">
-	                           <i class="icon-user"></i>Profile</a>
+							   <i class="icon-user"></i>Profile</a>
+							   <div>
+								   <?php if(count($_SESSION)>=1)
+ 									 {
+										// header("Location:index.php");
+											echo '<a href="include/logout.php">Logout</a>';
+									 }
+								 ?>
+	 							</div>
 	                        </a>
 
 	                        <div class="dropdown-menu dropdown-menu-right">
