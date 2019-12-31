@@ -710,7 +710,8 @@ include("include/header.php");
 	            	</div>
 	            </div>
             </section>
-            <section class="video-banner">
+            
+<section class="video-banner">
             	<img src="assets\images\demos\demo-24\video-banner\banner.jpg">
 
             	<div class="intro video">
@@ -843,7 +844,7 @@ include("include/header.php");
             <section class="instagram mb-3">
             	<div class="container">
             		<div class="heading">
-            			<p class="heading-cat">Follow Us On Instagram <span class="highlight">@molla_store<span></span></span></p>
+            			<p class="heading-cat">Follow Us On Instagram <span class="highlight">@konkantrails51<span></span></span></p>
             		</div>
 	            	<div class="row">
 	            		<div class="col-xl-5col col-md-3 col-6 instagram-feed">
