@@ -159,6 +159,8 @@ session_start();
  									 {
 										// header("Location:index.php");
 											echo '<a href="include/logout.php">Logout</a>';
+											echo "welcome </br> ".$_SESSION["user_name"];
+										//	print_r($_SESSION);
 									 }
 								 ?>
 	 							</div>
