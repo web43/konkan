@@ -150,20 +150,15 @@
                 <ul class="mobile-menu">
                     <li class="active">
                         <a href="index.html">Home</a>
-
-                        
                     </li>
                     <li>
                         <a href="category.html">Shop</a>
-                        
                     </li>
                     <li>
                         <a href="product.html" class="sf-with-ul">Product</a>
-                       
                     </li>
                     <li>
                         <a href="#">Pages</a>
-                       
                     </li>
                     <li>
                         <a href="blog.html">Blog</a>
