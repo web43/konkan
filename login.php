@@ -92,7 +92,7 @@
             if(empty($_POST["register-email"]))
             {
                 $u_email_err="Email is Required";
-                array_push($errors);
+                array_push($errors,$u_email_err);
             }
             else
             {
@@ -106,14 +106,14 @@
             if(empty($_POST["register-number"]))
             {
                 $phone_err="Mobile number required";
-                array_push($errors);
+                array_push($errors,$phone_err);
             }
             else{
                 $filtered_phone_number=filter_var($_POST["register-number"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
                 $phone_to_check = str_replace("-", "", $filtered_phone_number);
                 if (strlen($phone_to_check) < 10 || strlen($phone_to_check) > 14) {
                     $phone_err="invalid number";
-                    array_push($errors);
+                    array_push($errors,$phone_err);
                  } else {
                    $phone=$_POST["register-number"];
                  }
