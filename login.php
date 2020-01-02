@@ -135,7 +135,7 @@
             }
             else if($_POST['register-password']!=$_POST['Confirm_password'])
             {
-              $password_err="password does not match";
+              $password_err="Password does not match";
               array_push($errors,$password_err);
             }
             else
@@ -224,33 +224,33 @@
 							    		<div class="form-group">
                                             <label for="register-name">Your Name *</label>
                                             <input type="text" class="form-control" id="register-name" name="register-name" required="">
-                                            <span><?php echo $first_name_err; ?></span>
+                                            <span class="error"><?php echo $first_name_err; ?></span>
 										</div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-lastname">Your Lastname *</label>
                                             <input type="text" class="form-control" id="register-lastname" name="register-lastname" required="">
-                                            <span><?php echo $last_name_err; ?></span>
+                                            <span class="error"><?php echo $last_name_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-email">Your email address *</label>
                                             <input type="email" class="form-control" id="register-email" name="register-email" required="">
-                                            <span><?php echo $u_email_err; ?></span>
+                                            <span class="error"><?php echo $u_email_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-number">Phone Number *</label>
                                             <input type="phone" class="form-control" id="register-number" name="register-number" required="">
-                                            <span><?php echo $phone_err; ?></span>
+                                            <span class="error"><?php echo $phone_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-name">Address: </label>
                                             <input type="text" class="form-control" id="register-address" name="register-address" required="">
-                                            <span><?php echo $address_err; ?></span>
+                                            <span class="error"><?php echo $address_err; ?></span>
 										</div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="register-password">Password *</label>
                                             <input type="password" class="form-control" id="register-password" name="register-password" required="">
-                                            <span><?php echo $password_err; ?></span>
+                                            <span class="error"><?php echo $password_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-Confirm_password">Confirm Password *</label>
