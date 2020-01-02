@@ -41,6 +41,7 @@
             
                 else
                 {
+                    
                     $login_err="Invalid email or password";
 					//echo "<script>alert('Invalid email or password')</script>";
 				}
@@ -181,7 +182,7 @@
 							    	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
 							    		<div class="form-group">
 							    			<label for="singin-email-2">Username or email address *</label>
-							    			<input type="text" class="form-control" id="singin-email-2" name="singin-email" required="">
+							    			<input type="text" class="form-control" id="singin-email-2" name="singin-email" value="<?php echo $uid;?>" required="">
 							    		</div><!-- End .form-group -->
 
 							    		<div class="form-group">
@@ -226,33 +227,33 @@
 							    	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 							    		<div class="form-group">
                                             <label for="register-name">Your Name *</label>
-                                            <input type="text" class="form-control" id="register-name" name="register-name" required="">
+                                            <input type="text" class="form-control" id="register-name" name="register-name" value="<?php echo $first_name;?>" required="">
                                             <span class="error"><?php echo $first_name_err; ?></span>
 										</div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-lastname">Your Lastname *</label>
-                                            <input type="text" class="form-control" id="register-lastname" name="register-lastname" required="">
+                                            <input type="text" class="form-control" id="register-lastname" name="register-lastname" value="<?php echo $last_name;?>" required="">
                                             <span class="error"><?php echo $last_name_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-email">Your email address *</label>
-                                            <input type="email" class="form-control" id="register-email" name="register-email" required="">
+                                            <input type="email" class="form-control" id="register-email" name="register-email" value="<?php echo $u_email;?>" required="">
                                             <span class="error"><?php echo $u_email_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-number">Phone Number *</label>
-                                            <input type="phone" class="form-control" id="register-number" name="register-number" required="">
+                                            <input type="phone" class="form-control" id="register-number" name="register-number" value="<?php echo $phone;?>" required="">
                                             <span class="error"><?php echo $phone_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-name">Address: </label>
-                                            <input type="text" class="form-control" id="register-address" name="register-address" required="">
+                                            <input type="text" class="form-control" id="register-address" name="register-address" value="<?php echo $address;?>" required="">
                                             <span class="error"><?php echo $address_err; ?></span>
 										</div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="register-password">Password *</label>
-                                            <input type="password" class="form-control" id="register-password" name="register-password" required="">
+                                            <input type="password" class="form-control" id="register-password" name="register-password" value="<?php echo $password;?>" required="">
                                             <span class="error"><?php echo $password_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
