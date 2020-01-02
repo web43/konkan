@@ -5,6 +5,7 @@
         $username="root";
         $dbname="neuleaf";
         $login_err='';
+        $uid='';
 
         $conn=new mysqli($servername,$username,'',$dbname);
         if($conn->connect_error) 
@@ -149,6 +150,48 @@
         // -------------------------End of validation for registration form--------------
 
 
+        //----------------------------register in database -----------------------
+               
+
+       try{
+            if (isset($_POST['submit']) && count($errors)==0)
+            {
+
+                $servername="localhost";
+                $username="root";
+                $dbname="neuleaf";
+
+                $conn=new mysqli($servername,$username,'',$dbname);
+                if($conn->connect_error) 
+                {
+                    die("Connection failed: " . $conn->connect_error);
+                }   
+                //include("connection.php");
+                $sql = "INSERT INTO user (first_name,last_name,password,email,phone,address,type) VALUES ('".$first_name."', '".$last_name."', '".$password."','".$u_email."','".$phone."','".$address."','user')";
+
+                if ($conn->query($sql) === TRUE) 
+                {
+                    header("Location:index.php"); //to redirect back to "index.php" after logging out
+                    echo "done";
+                }
+                else {
+                   // echo "Error: " . $sql . "<br>" . $conn->error;
+                    throw new Exception("Email is already register");
+                }
+
+                $conn->close();
+            }
+        }
+        catch(Exception $e)
+             {
+           echo '<script> alert("' .$e->getMessage().'")</script>';
+           $u_email_err= $e->getMessage();
+
+        
+        }
+
+
+
 
 
 
@@ -192,7 +235,7 @@
 							    		</div><!-- End .form-group -->
 
 							    		<div class="form-footer">
-							    			<button type="submit" class="btn btn-outline-primary-2">
+							    			<button type="submit" class="btn btn-outline-primary-2" name="submit1">
 			                					<span>LOG IN</span>
 			            						<i class="icon-long-arrow-right"></i>
 			                				</button>
@@ -261,7 +304,7 @@
                                             <input type="password" class="form-control" id="Confirm_password" name="Confirm_password" required="">
                                         </div><!-- End .form-group -->
 							    		<div class="form-footer">
-							    			<button type="submit" class="btn btn-outline-primary-2">
+							    			<button type="submit" class="btn btn-outline-primary-2" name="submit">
 			                					<span>SIGN UP</span>
 			            						<i class="icon-long-arrow-right"></i>
 			                				</button>
