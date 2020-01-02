@@ -12,12 +12,16 @@
         }     
 
 
-    //   
+    //---------------------User login Php code ----------------------------------
+
+
        if(isset($_POST['singin-email']))
         {
+
+            
         
-            $uid=$_POST['singin-email'];
-            $pass=$_POST['singin-password'];
+            $uid=filter_var($_POST['singin-email'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+            $pass=filter_var($_POST['singin-password'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
             $sql="select * from user where email='".$uid."' AND password='".$pass."' limit 1";
             $result=$conn->query($sql);
         
@@ -28,9 +32,6 @@
             {
                 $_SESSION["user_name"]=$uid;
                 header("Location:index.php");
-               
-                
-               
                 echo '<a href="include/logout.php"><h1>LOgout</h1></a>';
                // echo "</br>";
 				//header("Location:../index.php");
@@ -44,6 +45,18 @@
             
             
         }
+        // -------------------------validation for registration form--------------
+
+        $errors=array();
+        $first_name=$last_name=$u_email=$phone=$address=$password='';
+        $first_name_err=$last_name_err=$u_email_err=$phone_err=$password_err='';
+
+        
+
+
+
+
+
         include("include/loginHeader.html");    
     ?>
         <main class="main">
@@ -115,14 +128,14 @@
 							    	</div><!-- End .form-choice -->
 							    </div><!-- .End .tab-pane -->
 							    <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-							    	<form action="#">
+							    	<form method="post" action="#">
 							    		<div class="form-group">
                                             <label for="register-name">Your Name *</label>
-                                            <input type="email" class="form-control" id="register-name" name="register-name" required="">
+                                            <input type="text" class="form-control" id="register-name" name="register-name" required="">
 										</div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-lastname">Your Lastname *</label>
-                                            <input type="email" class="form-control" id="register-lastname" name="register-lastname" required="">
+                                            <input type="text" class="form-control" id="register-lastname" name="register-lastname" required="">
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-email">Your email address *</label>
@@ -132,6 +145,10 @@
                                             <label for="register-number">Phone Number *</label>
                                             <input type="password" class="form-control" id="register-number" name="register-number" required="">
                                         </div><!-- End .form-group -->
+                                        <div class="form-group">
+                                            <label for="register-name">Address: </label>
+                                            <input type="text" class="form-control" id="register-address" name="register-name" required="">
+										</div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="register-password">Password *</label>
