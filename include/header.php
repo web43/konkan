@@ -24,6 +24,7 @@ session_start();
     <link rel="stylesheet" href="assets\css\style.css">
     <link rel="stylesheet" href="assets\css\skins\skin-demo-24.css">
     <link rel="stylesheet" href="assets\css\demos\demo-24.css">
+	<link rel="stylesheet" href="assets\css\custom.css">
 </head>
 <body>
 	<div class="page-wrapper">

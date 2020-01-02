@@ -46,12 +46,104 @@
             
         }
         // -------------------------validation for registration form--------------
+        function test_input($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+          }
 
         $errors=array();
         $first_name=$last_name=$u_email=$phone=$address=$password='';
-        $first_name_err=$last_name_err=$u_email_err=$phone_err=$password_err='';
+        $first_name_err=$last_name_err=$u_email_err=$address_err=$phone_err=$password_err='';
 
-        
+        if($_SERVER["REQUEST_METHOD"]=="POST")
+        {
+            if(empty($_POST["register-name"]))
+            {
+                $first_name_err="First name is reuired";
+                array_push($errors,$first_name_err);
+            }
+            else
+            {
+                $first_name=filter_var($_POST["register-name"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+                if (!preg_match("/^[a-zA-Z ]*$/",$first_name)) {
+                    $first_name_err = "Only letters and white space allowed";
+                    array_push($errors,$first_name_err);
+                  }
+            }
+
+            if(empty($_POST["register-lastname"]))
+            {
+                $last_name_err="Last name required";
+                array_push($errors,$first_name_err);
+            }
+            else
+            {
+                $last_name=filter_var($_POST["register-lastname"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+                if (!preg_match("/^[a-zA-Z ]*$/",$first_name)) {
+                    $last_name_err = "Only letters and white space allowed";
+                    array_push($errors,$last_name_err);
+                  }
+            }
+            if(empty($_POST["register-email"]))
+            {
+                $u_email_err="Email is Required";
+                array_push($errors);
+            }
+            else
+            {
+                $u_email=test_input($_POST["register-email"]);
+                if(!filter_var($u_email, FILTER_VALIDATE_EMAIL))
+                {
+                    $u_email_err="Invalid email format";
+                }
+            }
+
+            if(empty($_POST["register-number"]))
+            {
+                $phone_err="Mobile number required";
+                array_push($errors);
+            }
+            else{
+                $filtered_phone_number=filter_var($_POST["register-number"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+                $phone_to_check = str_replace("-", "", $filtered_phone_number);
+                if (strlen($phone_to_check) < 10 || strlen($phone_to_check) > 14) {
+                    $phone_err="invalid number";
+                    array_push($errors);
+                 } else {
+                   $phone=$_POST["register-number"];
+                 }
+            
+               
+            }
+
+            if(empty($_POST["register-address"]))
+            {
+                $address_err="Please enter your address";
+                array_push($errors,$password_err);
+            }
+            else{
+                $address=filter_var($_POST["register-address"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+            }
+
+            if(empty($_POST['register-password']))
+            {
+                $password_err="Please fill password";
+                array_push($errors,$password_err);
+
+            }
+            else if($_POST['register-password']!=$_POST['Confirm_password'])
+            {
+              $password_err="Password does not match";
+              array_push($errors,$password_err);
+            }
+            else
+            {
+              $password=test_input($_POST['Confirm_password']);
+            }
+        }
+        // -------------------------End of validation for registration form--------------
 
 
 
@@ -128,31 +220,37 @@
 							    	</div><!-- End .form-choice -->
 							    </div><!-- .End .tab-pane -->
 							    <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-							    	<form method="post" action="#">
+							    	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 							    		<div class="form-group">
                                             <label for="register-name">Your Name *</label>
                                             <input type="text" class="form-control" id="register-name" name="register-name" required="">
+                                            <span class="error"><?php echo $first_name_err; ?></span>
 										</div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-lastname">Your Lastname *</label>
                                             <input type="text" class="form-control" id="register-lastname" name="register-lastname" required="">
+                                            <span class="error"><?php echo $last_name_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-email">Your email address *</label>
                                             <input type="email" class="form-control" id="register-email" name="register-email" required="">
+                                            <span class="error"><?php echo $u_email_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-number">Phone Number *</label>
-                                            <input class="form-control" id="register-number" name="register-number" autocomplete="off" type="phone" maxlength="10" onkeypress="return isNumberKey(event)" required>
+                                            <input type="phone" class="form-control" id="register-number" name="register-number" required="">
+                                            <span class="error"><?php echo $phone_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-name">Address: </label>
-                                            <input type="text" class="form-control" id="register-address" name="register-name" required="">
+                                            <input type="text" class="form-control" id="register-address" name="register-address" required="">
+                                            <span class="error"><?php echo $address_err; ?></span>
 										</div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="register-password">Password *</label>
                                             <input type="password" class="form-control" id="register-password" name="register-password" required="">
+                                            <span class="error"><?php echo $password_err; ?></span>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-Confirm_password">Confirm Password *</label>
