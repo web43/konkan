@@ -356,6 +356,22 @@
     <script src="assets\js\owl.carousel.min.js"></script>
     <!-- Main JS File -->
     <script src="assets\js\main.js"></script>
+
+    <script>
+	function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+
+        function nospaces(t) {
+            if (t.value.match(/\s/g)) {
+                t.value = t.value.replace(/\s/g, '');
+            }
+        }
+
+</script>
 </body>
 
 </html>
