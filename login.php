@@ -143,7 +143,7 @@
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-number">Phone Number *</label>
-                                            <input type="password" class="form-control" id="register-number" name="register-number" required="">
+                                            <input class="form-control" id="register-number" name="register-number" autocomplete="off" type="phone" maxlength="10" onkeypress="return isNumberKey(event)" required>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-name">Address: </label>
@@ -255,6 +255,22 @@
     <script src="assets\js\owl.carousel.min.js"></script>
     <!-- Main JS File -->
     <script src="assets\js\main.js"></script>
+
+    <script>
+	function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+
+        function nospaces(t) {
+            if (t.value.match(/\s/g)) {
+                t.value = t.value.replace(/\s/g, '');
+            }
+        }
+
+</script>
 </body>
 
 </html>
