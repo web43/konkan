@@ -4,6 +4,7 @@
         $servername="localhost";
         $username="root";
         $dbname="neuleaf";
+        $login_err='';
 
         $conn=new mysqli($servername,$username,'',$dbname);
         if($conn->connect_error) 
@@ -40,7 +41,8 @@
             
                 else
                 {
-					echo "<script>alert('Invalid email or password')</script>";
+                    $login_err="Invalid email or password";
+					//echo "<script>alert('Invalid email or password')</script>";
 				}
             
             
@@ -184,7 +186,8 @@
 
 							    		<div class="form-group">
 							    			<label for="singin-password-2">Password *</label>
-							    			<input type="password" class="form-control" id="singin-password-2" name="singin-password" required="">
+                                            <input type="password" class="form-control" id="singin-password-2" name="singin-password" required="">
+                                            <span class="error"><?php echo "*" .$login_err ?> </span>
 							    		</div><!-- End .form-group -->
 
 							    		<div class="form-footer">
